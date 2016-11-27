@@ -3,12 +3,12 @@
  *
  *
  * @author 
- * @version 1.00 2016/11/22
+ * @version 1.00 2016/11/17
  */
 
 
 public class Car {
-	private String regNo = getRegNo();
+	private RegNo regNo;
 	private String brand;
 	private String model;
 	private float engSize;
@@ -18,16 +18,18 @@ public class Car {
 	private Person owner;
 
     public Car() {
+    	regNo = new RegNo();
 	    brand = "No Brand Specified";
 	    model = "No Model Specified";
 	    engSize = 0.0f;
 	    fuel = "No Fuel Type Specified";
 	    co2 = 0;
-	    value = 0.0;
+	    value = 0.0f;
 	    owner = new Person();
+	    
     }
-    public Car(String brand,String model,float engSize,String fuel,int co2,double value,String name,int age,char gender) {
-    	setRegNo(regNo);
+    public Car(int day,int month,String year,String location,String brand,String model,float engSize,String fuel,int co2,double value,String name,int age,char gender) {
+    	regNo = new RegNo(day,month,year,location);
     	setBrand(brand);
     	setModel(model);
     	setEngSize(engSize);
@@ -38,22 +40,13 @@ public class Car {
     	
     }
     
-    public Car(String brand,String model,float engSize,String fuel,int co2,double value,Person owner) {
-    	setRegNo(regNo);
-    	setBrand(brand);
-    	setModel(model);
-    	setEngSize(engSize);
-    	setFuel(fuel);
-    	setCo2(co2);
-    	setValue(value);
-    	setOwner(owner);
-    	
-    }
-    
     //--------------------------------------------------------
-    public void setRegNo(String regNo)
+    public void setRegNo(int day,int month,String year,String location)
     {
-    	this.regNo=regNo;
+    	regNo.setDay(day);
+  	    regNo.setMonth(month);
+  	    regNo.setYear(year);
+  	    regNo.setLocation(location);
    	
     }
     public void setBrand(String brand)
@@ -121,25 +114,6 @@ public class Car {
     {
 	     return owner;
     } 
-    public String getRegNo()
-    {
-    	int day =03;
-    	int month =02;
-    	int seq = 0;
-    	String yearAsString ="2016";
-    	String location = "Kerry";
-    	String output="";
-    	int min = 0;
-    	int max =999;
-    	int minmax =(max-min)+1;
-    	
-    	if (location.equals("Kerry"))
-    	{ 
-			return "Registration Number: "+yearAsString.substring(2)+"-KY-"+(day+month)+(int)(Math.random() * minmax);
-		}
-    	else
-    		return "Registration Number: "+yearAsString.substring(2)+"-D-"+(day+month)+(int)(Math.random() * minmax);
-    }
     //----------------------------------------------------------
     public String toString()
     {

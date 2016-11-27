@@ -9,11 +9,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class Maingui extends JFrame implements ActionListener{
     
     JMenuBar menuBar = new JMenuBar();
     JMenu fileMenu,carMenu;
+    private JTextField jtfDay,jtfMonth,jtfYear,jtfCounty;
+    private JLabel jlDay,jlMonth,jlfYear,jlfCounty;
 
     public static void main (String [] args) {
 		Maingui mainFrame = new Maingui();
@@ -22,13 +25,13 @@ public class Maingui extends JFrame implements ActionListener{
 
     public Maingui () {
     	
-        this.setTitle ("Motor Tax Calculator");
-        this.setSize (500, 500);
-        this.setDefaultCloseOperation( EXIT_ON_CLOSE );
+        super("Motor Tax Calculator");
+        setSize (500, 500);
+        setDefaultCloseOperation( EXIT_ON_CLOSE );
 
-        Container contentPane = getContentPane();
-        contentPane.setBackground (Color.lightGray);
-        contentPane.setLayout(null); 
+        Container frame = getContentPane();
+        frame.setBackground (Color.lightGray);
+        setLayout(new GridBagLayout()); 
         
         createFileMenu();
         createCarMenu();
@@ -36,7 +39,18 @@ public class Maingui extends JFrame implements ActionListener{
         setJMenuBar(menuBar);
         menuBar.add(fileMenu);
         menuBar.add(carMenu);
+        //==========================================================
+       
+        jtfDay = new JTextField("Day",3);
+        add(jtfDay);
+        jtfMonth = new JTextField("Month",3);
+        add(jtfMonth);
+        jtfYear = new JTextField("Year",4);
+        add(jtfYear);
+        jtfCounty = new JTextField("County",10);
+        add(jtfCounty);
         
+        //==========================================================
        
     }
 
