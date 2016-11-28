@@ -11,8 +11,9 @@ public class RegNo {
 	
 	private int day;
 	private int month;
-	private String year;
-	private String location;
+	private String year, location, registration, regCode;
+		
+
 	
 
     public RegNo() {
@@ -20,6 +21,7 @@ public class RegNo {
     	this.day = day;
     	this.month = month;
     	this.year = year;
+    	this.location = location;
     
     }
     public RegNo(int day,int month,String year,String location)
@@ -46,6 +48,8 @@ public class RegNo {
     {
     	this.location=location;
     }
+    
+    
     //===================================================================
     public int getDay()
     {
@@ -66,17 +70,32 @@ public class RegNo {
     //===================================================================
     public String toString()
     {
-    	String output="";
-    	int min = 0;
-    	int max =999;
-    	int minmax =(max-min)+1;
+    
+    	switch(location){
+    		
+    		case "Kerry" : regCode ="-KY-";
+    		break;
+    	    case "Dublin" : regCode ="-D-";
+    		break;
+    		case "Cork" : regCode ="-C-";
+    		break;
+    		case "Clare" : regCode ="-CE-";
+    		break;
+    		case "Galway" : regCode ="-G-";
+    		break;
+    		case "Waterford" : regCode ="-W-";
+    		break;
+    		case "Mayo" : regCode ="-MO-";
+    		break;
+    		case "Donegal" : regCode ="-DL-";
+    		break;
+    		default: regCode = "Invalid month";
+                     break;	
+    
+    	}
     	
-    	if (location.equals("Kerry"))
-    	{ 
-			return "Registration Number: "+year.substring(2)+"-KY-"+(day+month)+(int)(Math.random() * minmax);
-		}
-    	else
-    		return "Registration Number: "+year.substring(2)+"-D-"+(day+month)+(int)(Math.random() * minmax);
+    	
+      return year.substring(2)+regCode+(day+month)+String.format("%3d",((int)(Math.random()*1000+1)));
     }
     
 }
