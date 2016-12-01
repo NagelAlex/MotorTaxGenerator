@@ -11,7 +11,7 @@ public class Person {
 	
 	private String name;
 	private int age;
-	private char gender;
+	private String gender;
 
     public Person()
     {	
@@ -20,7 +20,7 @@ public class Person {
     	this.gender=gender;
     	//this("no",0,'n');
     }
-    public Person(String name,int age,char gender)
+    public Person(String name,int age,String gender)
     {	
     	setName(name);
     	setAge(age);
@@ -35,7 +35,7 @@ public class Person {
     {
     	this.age=age;
     }
-    public void setGender(char gender)
+    public void setGender(String gender)
     {
     	this.gender=gender;
     }
@@ -48,18 +48,13 @@ public class Person {
     {
     	return age;
     }
-    public char getGender()
+    public String getGender()
     {
     	return gender;
     }
     public String toString()
-    {
-    	if(name !=null)
-    		
-    		return name + " " + age + " " + gender;
-    		
-    	else
-    	    return "No Owner Specified";
+    {    		
+    	return name + ", " + age + ", " + gender;		
     }
     
     

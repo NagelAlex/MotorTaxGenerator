@@ -15,11 +15,11 @@ public class CarTest {
     //	Person p2 = new Person("Declan",35,'M');
     //	Car c1 = new Car("Toyota","Corolla",2.4f,"Petrol",140,3999,"Alexander Nagel",36,'M');
     //	Car c2 = new Car("BMW","M3",2.2f,"Diesel",98,5499,p2);
-    	Car c3 = new Car(14,12,"2008","Kerry","Toyota","Corolla",2.4f,"Petrol",140,3999,"Alexander Nagel",36,'M');
-    	Car c4 = new Car(14,12,"2012","Kerry","BMW","M5",2.2f,"Petrol",120,6999,"Declan",35,'M');
+    //	Car c3 = new Car(14,12,"2008","Kerry","Toyota","Corolla",2.4f,"Petrol",140,3999,"Alexander Nagel",36,"Male");
+    	Car c4 = new Car(14,12,"2009","Kerry","BMW","M5",1156,"Petrol",30,6999,"Declan",35,"Male");
     	
-    	System.out.println(c3.toString());
-    	System.out.println(c4.toString());
+    //	System.out.println(c3.toString());
+    	System.out.println(c4.toString()+"\n\n" + c4.motorTaxRate());
     
     }
     
