@@ -17,6 +17,7 @@ public class Car {
 	private double value;
 	private Person owner;
 	String motorTax;
+	String euro = "\u20ac";
 
     public Car() {
     	regNo = new RegNo();
@@ -40,6 +41,17 @@ public class Car {
     	owner = new Person(name,age,gender);
     	
     }
+    public Car(String brand,String model,int engSize,String fuel,int co2,double value,Person owner,RegNo regNo) {
+    	setBrand(brand);
+    	setModel(model);
+    	setEngSize(engSize);
+    	setFuel(fuel);
+    	setCo2(co2);
+    	setValue(value);
+    	setOwner(owner);
+    	setRegNo(regNo);
+    	
+    }
     
     //--------------------------------------------------------
     public void setRegNo(int day,int month,String year,String location)
@@ -50,6 +62,10 @@ public class Car {
   	    regNo.setLocation(location);
    	
     }
+    public void setRegNo(RegNo regNo)
+    {
+  	    this.regNo=regNo;
+  	}
     public void setBrand(String brand)
     {
     	this.brand=brand;
@@ -115,13 +131,17 @@ public class Car {
     {
 	     return owner;
     } 
+    public RegNo getRegNo()
+    {
+	     return regNo;
+    } 
     //----------------------------------------------------------
     public String toString()
     {
     	
     		
     	    return regNo + "\nCar Brand: " + brand + "\nCar Model: " + model + "\nEngine Size: " + engSize + "CC" +
-    			"\nFuel Type: " + fuel + "\nCar Value: " + value + " Euro" + "\nCo2 Emission : " + co2 + " g/km" +
+    			"\nFuel Type: " + fuel + "\nCar Value: " + euro + value + "\nCo2 Emission : " + co2 + " g/km" +
     				"\nOwner: " + owner.toString();
 
     }
@@ -139,91 +159,91 @@ public class Car {
     	{
     		if(engineSize>=0 && engineSize <=1000)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 199 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 199);
     		}
     		else if(engineSize<=1100)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 299 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 299);
     		}
     		else if(engineSize<=1200)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 330 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 330);
     		}
     		else if(engineSize<=1300)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 358 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 358);
     		}
     		else if(engineSize<=1400)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 385 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 385);
     		}
     		else if(engineSize<=1500)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 413 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 413);
     		}
     		else if(engineSize<=1600)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 330 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 330);
     		}
     		else if(engineSize<=1700)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 544 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 544);
     		}
     		else if(engineSize<=1800)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 636 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 636);
     		}
     		else if(engineSize<=1900)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 673 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 673);
     		}
     		else if(engineSize<=2000)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 710 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 710);
     		}
     		else if(engineSize<=2100)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 906 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 906);
     		}
     		else if(engineSize<=2200)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 951 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 951);
     		}
     		else if(engineSize<=2300)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 994 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 994);
     		}
     		else if(engineSize<=2400)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 1034 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 1034);
     		}
     		else if(engineSize<=2500)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 1080 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 1080);
     		}
     		else if(engineSize<=2600)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 1294 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 1294);
     		}
     		else if(engineSize<=2700)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 1345 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 1345);
     		}
     		else if(engineSize<=2800)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 1391 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 1391);
     		}
     		else if(engineSize<=2900)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 1443 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 1443);
     		}
     		else if(engineSize<=3000)
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 1494 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 1494);
     		}
     		else
     		{
-    			motorTax = ("Your anual Motor Tax is: " + 1809 + "Euro");
+    			motorTax = ("Your anual Motor Tax is: " + euro + 1809);
     		}
     		
     	}
@@ -231,51 +251,51 @@ public class Car {
     	{
     		if(co2<=0)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 120 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 120);
     		}
     		else if(co2<=80)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 170 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 170);
     		}
     		else if(co2<=100)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 180 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 180);
     		}
     		else if(co2<=110)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 190 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 190);
     		}
     		else if(co2<=120)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 200 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 200);
     		}
     		else if(co2<=130)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 270 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 270);
     		}
     		else if(co2<=140)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 280 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 280);
     		}
     		else if(co2<=155)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 390 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 390);
     		}
     		else if(co2<=170)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 570 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 570);
     		}
     		else if(co2<=190)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 750 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 750);
     		}
     		else if(co2<=225)
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 1200 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 1200);
     		}
     		else
     		{
-    				motorTax = ("Your anual Motor Tax is: " + 2350 + "Euro");
+    				motorTax = ("Your anual Motor Tax is: " + euro + 2350);
     		}
     	}
     	return motorTax;

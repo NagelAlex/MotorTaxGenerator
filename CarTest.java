@@ -17,7 +17,7 @@ public class CarTest {
     //	Car c2 = new Car("BMW","M3",2.2f,"Diesel",98,5499,p2);
     //	Car c3 = new Car(14,12,"2008","Kerry","Toyota","Corolla",2.4f,"Petrol",140,3999,"Alexander Nagel",36,"Male");
     	Car c4 = new Car(14,12,"2009","Kerry","BMW","M5",1156,"Petrol",30,6999,"Declan",35,"Male");
-    	
+    	Car c5 = new Car(14,12,"2004","Kerry","Toyota","Rav4",1156,"Petrol",30,6999,"Declan",35,"Male");
     //	System.out.println(c3.toString());
     	System.out.println(c4.toString()+"\n\n" + c4.motorTaxRate());
     

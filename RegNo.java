@@ -89,7 +89,7 @@ public class RegNo {
     		break;
     		case "Donegal" : regCode ="-DL-";
     		break;
-    		default: regCode = "Invalid month";
+    		default: regCode = "Invalid";
                      break;	
     
     	}
