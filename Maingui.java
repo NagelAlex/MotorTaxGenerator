@@ -34,14 +34,7 @@ public class Maingui extends JFrame implements ActionListener{
     JLabel jlRegNo,jlOwnerName;
     ArrayList <Car> resultsList = new ArrayList <Car>(); 
     JTextArea resultsArea;
-    //private List<Car> resultsList;
-    	
-
-    public static void main (String [] args) {
-		Maingui mainFrame = new Maingui();
-        mainFrame.setVisible(true);
-    }
-
+    
     public Maingui () {
     	
         super("Motor Tax Calculator");
@@ -212,28 +205,37 @@ public class Maingui extends JFrame implements ActionListener{
       	else if (e.getActionCommand() .equals ("Add Car"))
       	{
       		reset();
-      		JOptionPane.showMessageDialog(null,"Please enter manufacture date of the vehicle and County of registration");
+      		setSize (900, 250);
+      		//resultsArea.setVisible(false);
       	 	datePanel.setVisible(true);
       	 	submitDate.setVisible(true);
+      	 	JOptionPane.showMessageDialog(null,"Please enter manufacture date of the vehicle and County of registration");
       	}
       	else if (e.getActionCommand() .equals ("Save")){
       		
-      	 	//code
+      	 	save();
+      	 	JOptionPane.showMessageDialog(null,"Your data has been successfully saved");
       	}
       	else if (e.getActionCommand() .equals ("Load")){
       		
-      	 	//code
+      	 	load();
+      	 	JOptionPane.showMessageDialog(null,"Your data has been successfully loaded");
       	}
       	else if (e.getActionCommand() .equals ("Display Results")){
       		
-      	 	//code
+      		reset();
+      	 	setSize (300, 500);
+      	 	resultsArea = new JTextArea(resultsList.toString(),30,20);
+      	 	add(resultsArea);
+      	 	resultsArea.setVisible(true);
+      	 	
       	}
     	
         else if(e.getSource() == submitDate)
         {
         	int day, month;
         	String county, year;
-        	JOptionPane.showMessageDialog(null,"Please enter Owner Details");
+        	
         	county = cmbCounties.getSelectedItem().toString();
         	day = Integer.parseInt(cmbDays.getSelectedItem().toString());
         	month = Integer.parseInt(cmbMonth.getSelectedItem().toString());  
@@ -244,6 +246,7 @@ public class Maingui extends JFrame implements ActionListener{
         	jlRegNo.setText(reg);
         	ownerPanel.setVisible(true);
         	submitOwner.setVisible(true);
+        	JOptionPane.showMessageDialog(null,"Please enter Owner Details");
    
         }
         else if(e.getSource() == submitOwner)
@@ -251,8 +254,16 @@ public class Maingui extends JFrame implements ActionListener{
         	String name,gender;
         	int age;
         	
-        	JOptionPane.showMessageDialog(null,"Please enter required specification of the vehicle");
         	name = jtfName.getText();
+        	try
+        	{
+        		age = Integer.parseInt(jtfAge.getText());
+        	} catch(NumberFormatException a)
+        			
+        	{
+        		jtfAge.setText("");
+                JOptionPane.showMessageDialog(null,"Age field must contain numeric value only!\nPlease Re-enter","error",JOptionPane.ERROR_MESSAGE);
+            }
         	age = Integer.parseInt(jtfAge.getText());
         	gender = cmbGender.getSelectedItem().toString();
         	Person owner = new Person(name,age,gender);
@@ -261,6 +272,7 @@ public class Maingui extends JFrame implements ActionListener{
         	namePanel.setVisible(true);
         	carPanel.setVisible(true);
         	calcTax.setVisible(true);
+        	JOptionPane.showMessageDialog(null,"Please enter required specification of the vehicle");
         }
         else if(e.getSource() == calcTax)
         {
@@ -277,8 +289,38 @@ public class Maingui extends JFrame implements ActionListener{
         	brand = cmbBrand.getSelectedItem().toString();
         	model = jtfModel.getText();
         	fuel = cmbFuel.getSelectedItem().toString();
+        
+        	try
+        	{
+        		engSize = Integer.parseInt(jtfEngSize.getText());
+        	} catch(NumberFormatException a)
+        			
+        	{
+        		jtfEngSize.setText("");
+                JOptionPane.showMessageDialog(null,"Engine Size field must contain numeric value only!\nPlease Re-enter","error",JOptionPane.ERROR_MESSAGE);
+            }	
         	engSize = Integer.parseInt(jtfEngSize.getText());
+        	
+        	try
+        	{
+        		co2 = Integer.parseInt(jtfCo2.getText());
+        	} catch(NumberFormatException a)
+        			
+        	{
+        		jtfCo2.setText("");
+                JOptionPane.showMessageDialog(null,"CO2 field must contain numeric value only!\nPlease Re-enter","error",JOptionPane.ERROR_MESSAGE);
+            }
         	co2 = Integer.parseInt(jtfCo2.getText());
+        	
+        	try
+        	{
+        		value = Double.parseDouble(jtfValue.getText());
+        	} catch(NumberFormatException a)
+        			
+        	{
+        		jtfValue.setText("");
+                JOptionPane.showMessageDialog(null,"Value field must contain numeric value only!\nPlease Re-enter","error",JOptionPane.ERROR_MESSAGE);
+            }
         	value = Double.parseDouble(jtfValue.getText());
         	//=============================================================
         	county = cmbCounties.getSelectedItem().toString();
@@ -287,6 +329,15 @@ public class Maingui extends JFrame implements ActionListener{
         	year = cmbYear.getSelectedItem().toString();
         	//=============================================================
         	name = jtfName.getText();
+        	try
+        	{
+        		age = Integer.parseInt(jtfAge.getText());
+        	} catch(NumberFormatException a)
+        			
+        	{
+        		jtfAge.setText("");
+                JOptionPane.showMessageDialog(null,"Age field must contain numeric value only!\nPlease Re-enter","error",JOptionPane.ERROR_MESSAGE);
+            }
         	age = Integer.parseInt(jtfAge.getText());
         	gender = cmbGender.getSelectedItem().toString();
         	
@@ -294,16 +345,13 @@ public class Maingui extends JFrame implements ActionListener{
         	String result = carObject.toString();
         	resultsList.add(carObject);
         	clearUi.setVisible(true);
-        	
-        	
-        	JOptionPane.showMessageDialog(null,result + "\n\n" + carObject.motorTaxRate());	
-        	
+        		
+        	JOptionPane.showMessageDialog(null,resultsList.toString());		
         }
         else if(e.getSource() == clearUi)
         {	
         	reset();
         }
-
     }
     private void createFileMenu(){
          //  menu
@@ -345,6 +393,7 @@ public class Maingui extends JFrame implements ActionListener{
         regPanel.setVisible(false);
         datePanel.setVisible(false);
       	submitDate.setVisible(false);
+      	//resultsArea.setVisible(false);	
       	jtfName.setText("");
       	jtfAge.setText("");
       	jtfModel.setText("");
@@ -357,8 +406,50 @@ public class Maingui extends JFrame implements ActionListener{
       	cmbCounties.setSelectedIndex(0);
       	cmbBrand.setSelectedIndex(0);
       	cmbFuel.setSelectedIndex(0);
-      	cmbGender.setSelectedIndex(0);
+      	cmbGender.setSelectedIndex(0);	
+      }
+     private void load() {
+      	try{
+      	  ObjectInputStream is;
+      	  is = new ObjectInputStream(new FileInputStream ("data.dat"));
+          resultsList  = (ArrayList<Car>) is.readObject();
+      	  is.close();
+      	}
       	
+      	catch(FileNotFoundException e){
+      		JOptionPane.showMessageDialog(null,"FileNotFound: "+e.getMessage());
+      		e.printStackTrace();
+      	}
+      	catch(IOException e){
+      		JOptionPane.showMessageDialog(null,"IOException: "+e.getMessage());
+      		e.printStackTrace();
+      	}
+      	catch(Exception e){
+      		JOptionPane.showMessageDialog(null,"open didn't work: "+e.getMessage());
+      		e.printStackTrace();
+      	}
+      	} 
+      		
+      private void save(){
+      	try{
+      		ObjectOutputStream os;
+      		os = new ObjectOutputStream(new FileOutputStream ("data.dat"));
+      		os.writeObject(resultsList);
+      		os.close();
+      	}
+      	catch(FileNotFoundException e){
+      		JOptionPane.showMessageDialog(null,"FileNotFound: "+e.getMessage());
+      		e.printStackTrace();
+      	}
+      	catch(IOException e){
+      		JOptionPane.showMessageDialog(null,"IOException: "+e.getMessage());
+      		e.printStackTrace();
+      	}
+      	catch(Exception e){
+      		JOptionPane.showMessageDialog(null,"save didn't work: "+e.getMessage());
+      		e.printStackTrace();
+      	}
+      		
       }
 
 }

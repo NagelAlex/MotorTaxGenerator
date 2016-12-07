@@ -2,27 +2,24 @@
  * @(#)RegNo.java
  *
  *
- * @author 
+ * @author Alexand
  * @version 1.00 2016/11/24
  */
 
+import java.io.*;
 
-public class RegNo {
+public class RegNo implements Serializable{
 	
-	private int day;
-	private int month;
+	private int day,month;
 	private String year, location, registration, regCode;
 		
-
-	
-
-    public RegNo() {
-    	
+		
+    public RegNo() 
+    {
     	this.day = day;
     	this.month = month;
     	this.year = year;
     	this.location = location;
-    
     }
     public RegNo(int day,int month,String year,String location)
     {	

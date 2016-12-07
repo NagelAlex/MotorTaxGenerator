@@ -1,3 +1,5 @@
+import java.io.*;
+
 /**
  * @(#)Car.java
  *
@@ -7,7 +9,7 @@
  */
 
 
-public class Car {
+public class Car implements Serializable{
 	private RegNo regNo;
 	private String brand;
 	private String model;
@@ -140,9 +142,9 @@ public class Car {
     {
     	
     		
-    	    return regNo + "\nCar Brand: " + brand + "\nCar Model: " + model + "\nEngine Size: " + engSize + "CC" +
+    	    return "\n********************************************\n" + regNo + "\nCar Brand: " + brand + "\nCar Model: " + model + "\nEngine Size: " + engSize + "CC" +
     			"\nFuel Type: " + fuel + "\nCar Value: " + euro + value + "\nCo2 Emission : " + co2 + " g/km" +
-    				"\nOwner: " + owner.toString();
+    				"\nOwner: " + owner.toString() + "\n" + motorTaxRate();
 
     }
     
